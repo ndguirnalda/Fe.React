@@ -1,6 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './app/layout/App'; //App.jsx
+import '@fortawesome/fontawesome-svg-core';
+import '@fortawesome/react-fontawesome';
+import '@fortawesome/free-solid-svg-icons';
+import 'semantic-ui-css/semantic.min.css';
 import './app/layout/styles.css';
 import reportWebVitals from './reportWebVitals';
 
@@ -9,10 +13,8 @@ const rootEL = document.getElementById('root');
 
 function render(){
 	ReactDOM.render(
-		  <React.StrictMode>
-		    <App />
-		  </React.StrictMode>,
-		 rootEL)
+		  		<React.StrictMode><App /></React.StrictMode>, rootEL
+		  )
 
 	}
 
