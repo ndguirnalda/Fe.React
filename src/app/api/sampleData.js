@@ -35,7 +35,7 @@ export const sampleData = [
         attendees: [
             {
                 id: 'a',
-                name: 'Bob',
+                name: 'Bob',    
                 photoURL: 'https://randomuser.me/api/portraits/men/20.jpg'
             },
             {
