@@ -1,5 +1,5 @@
 import React from 'react';
-import { button, Icon, Item, List, Segment, SegmentGroup } from 'semantic-ui-react';
+import { Button, Icon, Item, List, Segment, SegmentGroup } from 'semantic-ui-react';
 import EventListAttendee from './EventListAttendee';
 
 export default function EventListItem({ event, selectEvent }){
@@ -27,21 +27,24 @@ export default function EventListItem({ event, selectEvent }){
                 </span>
             </Segment> 
 
+            {/* attendees */}
             <Segment secondary>
                 <List horizontal>
                 {event.attendees.map(attendee => <EventListAttendee key={attendee.id} attendee={attendee} /> )}
                     
                 </List>
             </Segment>
+
+            {/* description */}
             <Segment clearing>
                 <div>{event.description}</div>
                 <button
-                    class="ui right floated labeled icon button" 
+                    className="ui right floated labeled icon button" 
                     onClick={() => selectEvent(event) } 
                     color='teal'
                     floated='right'
                 >
-                <i class="right arrow icon"></i>
+                <i className="right arrow icon"></i>
                 View
                 </button>
             </Segment>
