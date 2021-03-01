@@ -15,7 +15,6 @@ export default function App() {
 		setFormOpen(true);
 	}
 
-	
 	function handleCreateFormOpen(){
 		setSelectedEvent(null);
 		setFormOpen(true);

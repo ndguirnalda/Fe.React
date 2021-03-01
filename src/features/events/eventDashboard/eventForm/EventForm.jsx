@@ -13,7 +13,7 @@ export default function EventForm( { setFormOpen, setEvents, createEvent, select
             description:'',
             city:'',
             venue:'',
-            date:'',
+            date:''
         };
 
     const [values, setValues ] = useState(initialValues);
@@ -21,7 +21,7 @@ export default function EventForm( { setFormOpen, setEvents, createEvent, select
     function handleFormSubmit() {
 
         selectedEvent 
-        ? updateEvent({...selectedEvent})
+        ? updateEvent({...selectedEvent, ...values})
         : createEvent({
             ...values, 
             id: cuid(), 
