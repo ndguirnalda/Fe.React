@@ -27,7 +27,7 @@ export default function EventForm( { setFormOpen, setEvents, createEvent, select
             id: cuid(), 
             hostedBy: 'Bob', 
             attendees: [], 
-            hostPhotoURL:'/assets/user.png', 
+            hostPhotoURL:'/assets/user.png'
         });
          
         setFormOpen(false);
