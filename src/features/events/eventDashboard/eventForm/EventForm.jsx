@@ -20,6 +20,8 @@ export default function EventForm( { setFormOpen, setEvents, createEvent, select
     
     function handleFormSubmit() {
 
+        // console.log(values);
+
         selectedEvent 
         ? updateEvent({...selectedEvent, ...values})
         : createEvent({
@@ -96,11 +98,11 @@ export default function EventForm( { setFormOpen, setEvents, createEvent, select
                 <Form.Field>
                 <div className="ui labeled input">
                         <div className="ui label">Date</div>
-                    <input type='date' placeholder='Date' 
-                    name='date' 
-                    value={values.date}
-                    onChange={ (e) => handleInputChange(e) } 
-                    />
+                        <input type='date' placeholder='Date' 
+                        name='date' 
+                        value={values.date}
+                        onChange={ (e) => handleInputChange(e) } 
+                        />
                 </div>
                 </Form.Field>
 

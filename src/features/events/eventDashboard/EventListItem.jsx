@@ -39,24 +39,21 @@ export default function EventListItem({ event, selectEvent, deleteEvent }){
             <Segment clearing>
                 <div>{event.description}</div>
 
-                <button
+                <Button
                     className="ui right floated button" 
                     onClick={() => deleteEvent(event.id) } 
                     color='red'
                     floated='right'
-                >
-                
-                Delete Event
-                </button>
-                <button
-                    className="ui right floated labeled icon button" 
+                    content='Delete Event'
+                />
+
+                <Button
+                    className="ui right floated icon button" 
                     onClick={() => selectEvent(event) } 
                     color='teal'
                     floated='right'
-                >
-                <i className="right arrow icon"></i>
-                View
-                </button>
+                    content='View'
+                />
             </Segment>
         </SegmentGroup>
     );

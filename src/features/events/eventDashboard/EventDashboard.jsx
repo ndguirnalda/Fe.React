@@ -10,7 +10,6 @@ export default function EventDashboard({formOpen, setFormOpen, selectEvent, sele
 const [events, setEvents]= useState(sampleData);
 
 // CRUD FUNCTIONS
-
 // create event
 function handleCreateEvent(event){
         setEvents([...events, event]);
@@ -21,9 +20,11 @@ function handleUpdateEvent(updatedEvent){
     // .map is like foreach statement 
     setEvents(events.map(evt => evt.id === updatedEvent.id ? updatedEvent :  evt )); 
     selectEvent(null);
+    // console.log(updatedEvent);
 // setFormOpen(false);
 }
 
+// Delete Event
 function handleDeleteEvent(eventId){
 
     setEvents(events.filter(evt => evt.id !== eventId));
@@ -41,8 +42,10 @@ return(
                     <EventForm 
                     setFormOpen={setFormOpen} 
                     setEvents={setEvents} 
-                    createEvent={handleCreateEvent} 
                     selectedEvent={selectedEvent}
+                    createEvent={handleCreateEvent} 
+                    updateEvent={handleUpdateEvent}
+                    key={ selectedEvent ? selectedEvent.id : null}
                     />
                 }
             </Grid.Column>

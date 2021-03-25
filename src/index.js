@@ -13,7 +13,7 @@ const rootEL = document.getElementById('root');
 
 function render(){
 	ReactDOM.render(
-		  		<React.StrictMode><App /></React.StrictMode>, rootEL
+		  		<><App /></>, rootEL
 		  )
 
 	}

@@ -30,7 +30,7 @@ export default function App() {
  						setFormOpen={setFormOpen}
 						selectEvent={handleSelectEvent}
 						selectedEvent={selectedEvent}
-						key={selectedEvent ? selectedEvent.id : null }
+						// key={selectedEvent ? selectedEvent.id : null }
 					/>
 				</Container>
 			</>	
