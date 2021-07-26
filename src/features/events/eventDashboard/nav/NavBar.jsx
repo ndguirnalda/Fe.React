@@ -1,31 +1,52 @@
-import { React } from 'react';
-import { Menu, Container, Button } from 'semantic-ui-react';
+import { React } from "react";
+import { useState } from "react";
+import { NavLink, useHistory } from "react-router-dom";
+import { Menu, Container, Button } from "semantic-ui-react";
+import SignedInMenu from "./SignedInMenu";
+import SignedOutMenu from "./SignedOutMenu";
 
-export default function NavBar({setFormOpen}){
-    
-    return(
-        <Menu inverted fixed='top'>
-            <Container> 
-                <Menu.Item><i className="fas fa-calendar-week" style={{ marginRight: 15 }}></i></Menu.Item>
+export default function NavBar({ setFormOpen }) {
+  
+  const history = useHistory();
+  const [authenticated, setAuthenticated] = useState(false);
 
-                <Menu.Item name='Events'></Menu.Item>   
+  function handleSignOut() {
+    setAuthenticated(false);
+    history.push("/");
+  }
 
-                <Menu.Item header>
-                   <Button onClick={ ()=> setFormOpen(true) } positive inverted content='Create Event'></Button> 
-                </Menu.Item>
-                
-                <Menu.Item className="Item" name='React JS'></Menu.Item>
-                
-                <Menu.Item position='right'>
-                   <Button basic inverted content='Login'/>
-                   <Button basic inverted content='Register' style={{marginLeft: '0.5em'}} /> 
-                </Menu.Item>
+  return (
+    <Menu inverted fixed="top">
+      <Container>
+        <Menu.Item as={NavLink} exact to="/" header>
+          <i className="fas fa-calendar-week" style={{ marginRight: 15 }}></i>
+        </Menu.Item>
 
-                <Menu.Item>
-                     <i className="fab fa-facebook-messenger fa-2x"></i>
-                </Menu.Item>
- 
-            </Container>
-        </Menu>
-    )
+        <Menu.Item as={NavLink} to="/events" name="Events"></Menu.Item>
+
+        {authenticated && (
+          <Menu.Item as={NavLink} to="/createEvent">
+            <Button
+              onClick={() => setFormOpen(true)}
+              positive
+              inverted
+              content="Create Event"
+            ></Button>
+          </Menu.Item>
+        )}
+
+        <Menu.Item className="Item" name="React JS"></Menu.Item>
+
+        {authenticated ? (
+          <SignedInMenu signOut={handleSignOut} />
+        ) : (
+          <SignedOutMenu setAuthenticated={setAuthenticated} />
+        )}
+
+        <Menu.Item>
+          <i className="fab fa-facebook-messenger fa-2x"></i>
+        </Menu.Item>
+      </Container>
+    </Menu>
+  );
 }
