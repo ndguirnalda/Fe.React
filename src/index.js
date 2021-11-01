@@ -9,15 +9,22 @@ import "./app/layout/styles.css";
 // import * as serviceWorker from "./serviceWorker";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
+import { Provider } from 'react-redux';
+import { configureStore } from './app/store/configureStore';
+
+const store = configureStore();
 
 const rootEL = document.getElementById("root");
 
 function render() {
   ReactDOM.render(
-    <BrowserRouter>
-        <App /> 
-		{/* passing to child App.jsx */}
-    </BrowserRouter>,
+
+      <Provider store={store}>
+        <BrowserRouter>
+          <App/>
+            {/* passing to child App.jsx */}
+        </BrowserRouter>
+      </Provider>,
     rootEL
   );
 }
