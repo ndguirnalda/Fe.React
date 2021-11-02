@@ -9,5 +9,5 @@ export default function EventListAttendee({attendee}){
             </List.Item>
     );
 
-}
+} 
 

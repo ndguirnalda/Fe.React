@@ -14,6 +14,8 @@ import { configureStore } from './app/store/configureStore';
 
 const store = configureStore();
 
+console.log(store.getState());
+
 const rootEL = document.getElementById("root");
 
 function render() {
